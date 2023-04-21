@@ -1,6 +1,6 @@
 package Ex3;
 
-public class Car implements Comparable {
+public class Car implements Comparable<Car> {
     int speed;
     int price;
     String model;
@@ -17,14 +17,14 @@ public class Car implements Comparable {
         return this.speed + " " + this.price + " " + this.model + " " + this.color;
     }
 
-    public int compareTo(Object o) {    // public int compareTo(Car o) {
-        int temp = this.speed - ((Car) o).speed;   // int temp = this.speed - o.speed;
+    public int compareTo(Car o) {    // public int compareTo(Car o) {
+        int temp = this.speed - o.speed;   // int temp = this.speed - o.speed;
         if (temp == 0) {
-            temp = this.price - ((Car) o).price;
+            temp = this.price - o.price;
             if (temp == 0) {
-                temp = this.model.compareTo(((Car) o).model);
+                temp = this.model.compareTo(o.model);
                 if (temp == 0) {
-                    return this.color.compareTo(((Car) o).color);
+                    return this.color.compareTo(o.color);
                 }
             }
         }
